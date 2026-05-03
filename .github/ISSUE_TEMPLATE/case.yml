@@ -1,0 +1,46 @@
+name: File a case
+description: Report something Cable Detective got wrong, or a bug, or a request
+title: 'Case: '
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer the in-app button **"Did we get something not quite right?"** - it strips your Mac's serials/UUIDs/hostname automatically and pre-fills this form. If you must file manually, please redact identifying values yourself.
+  - type: textarea
+    id: what-wrong
+    attributes:
+      label: What did Cable Detective get wrong?
+      placeholder: e.g. Verdict said USB-C 2.0 but this is a Thunderbolt 4 cable
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: e.g. 40 Gbps, USB4, TB4 logo on the connector
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Redacted scan report
+      description: Paste the redacted report copied from the app. Do not paste raw IOKit data containing serials/UUIDs/hostname.
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos
+      description: Drag images of the cable, connectors, and any markings into this field.
+    validations:
+      required: false
+  - type: input
+    id: handle
+    attributes:
+      label: Your GitHub @handle (optional)
+      description: If you want a notification when we update this case, drop your handle. We'll @mention you.
+      placeholder: e.g. @yourhandle
+    validations:
+      required: false
